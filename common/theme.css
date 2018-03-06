@@ -1,12 +1,30 @@
 :root {
   --color-primary: #cc9ab6;
   --color-secondary: #333;
-  --color-whatever: #cc9ab6;
   --color-primary-light: #e5e5e5;
   --font-primary: "Roboto", "Lato", arial, sans-serif;
-  --font-secondary: "Roboto Condensed", monospace;
 }
 
 html {
   font-family: var(--font-primary);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+mark {
+  background-color: var(--color-primary-light);
+}
+
+h2 {
+  color: var(--color-primary);
+}
+
+h4 {
+  color: var(--color-primary);
+}
+
+h6 {
+  color: var(--color-primary);
 }

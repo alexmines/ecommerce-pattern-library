@@ -18,4 +18,4 @@ colors:
   neutral: |
     The neutral colours are bland. Their real purpose is for body copy, captions, tables, etc.
 ---
-This is the company introduction–we're so amazing and our brand signifies awesomeness!
+MUGS is an online store that specializes in mugs. They carry many designs, such as funny, sweet and artistic.

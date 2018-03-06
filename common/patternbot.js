@@ -348,9 +348,9 @@ const patternBotIncludes = function (manifest) {
 /** 
  * Patternbot library manifest
  * /Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library
- * @version 1519675974591
+ * @version 1520360840241
  */
-const patternManifest_1519675974591 = {
+const patternManifest_1520360840241 = {
   "commonInfo": {
     "modulifier": [
       "responsive",
@@ -446,15 +446,7 @@ const patternManifest_1519675974591 = {
           }
         ],
         "neutral": [],
-        "accent": [
-          {
-            "name": "--color-whatever",
-            "namePretty": "Whatever",
-            "raw": "#cc9ab6",
-            "hex": "#cc9ab6",
-            "rgba": "rgba(204, 154, 182, 1)"
-          }
-        ]
+        "accent": []
       },
       "fonts": {
         "primary": {
@@ -474,34 +466,16 @@ const patternManifest_1519675974591 = {
             }
           }
         },
-        "secondary": {
-          "name": "--font-secondary",
-          "namePretty": "Roboto Condensed",
-          "raw": "\"Roboto Condensed\", monospace",
-          "weights": {
-            "normal": {
-              "weight": "normal",
-              "hasNormal": true,
-              "hasItalic": false
-            },
-            "bold": {
-              "weight": "bold",
-              "hasNormal": true,
-              "hasItalic": false
-            }
-          }
-        },
+        "secondary": {},
         "accent": []
       },
       "coloursRaw": {
         "--color-primary": "#cc9ab6",
         "--color-secondary": "#333",
-        "--color-whatever": "#cc9ab6",
         "--color-primary-light": "#e5e5e5"
       },
       "fontsRaw": {
-        "--font-primary": "\"Roboto\", \"Lato\", arial, sans-serif",
-        "--font-secondary": "\"Roboto Condensed\", monospace"
+        "--font-primary": "\"Roboto\", \"Lato\", arial, sans-serif"
       }
     },
     "readme": {
@@ -515,6 +489,16 @@ const patternManifest_1519675974591 = {
         }
       }
     },
+    "icons": [
+      "cart-empty",
+      "cart-full",
+      "instagram",
+      "facebook",
+      "search",
+      "toggle-open",
+      "twitter",
+      "toggle-closed"
+    ],
     "interfaceColours": {
       "primary": 0,
       "opposite": 255
@@ -542,7 +526,10 @@ const patternManifest_1519675974591 = {
     },
     "patterns": [
       "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/buttons",
-      "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/cards"
+      "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/cards",
+      "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/forms",
+      "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/nav",
+      "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/sections"
     ],
     "pages": []
   },
@@ -585,13 +572,19 @@ const patternManifest_1519675974591 = {
           "name": "basic-card",
           "namePretty": "Basic card",
           "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/cards/basic-card.html",
-          "localPath": "patterns/cards/basic-card.html"
+          "localPath": "patterns/cards/basic-card.html",
+          "readme": {
+            "width": 400
+          }
         },
         {
           "name": "icon-card",
           "namePretty": "Icon card",
           "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/cards/icon-card.html",
-          "localPath": "patterns/cards/icon-card.html"
+          "localPath": "patterns/cards/icon-card.html",
+          "readme": {
+            "width": 400
+          }
         }
       ],
       "md": [
@@ -608,6 +601,125 @@ const patternManifest_1519675974591 = {
           "namePretty": "Cards",
           "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/cards/cards.css",
           "localPath": "patterns/cards/cards.css"
+        }
+      ]
+    },
+    {
+      "name": "forms",
+      "namePretty": "Forms",
+      "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/forms",
+      "html": [
+        {
+          "name": "dropdown",
+          "namePretty": "Dropdown",
+          "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/forms/dropdown.html",
+          "localPath": "patterns/forms/dropdown.html"
+        },
+        {
+          "name": "fieldset",
+          "namePretty": "Fieldset",
+          "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/forms/fieldset.html",
+          "localPath": "patterns/forms/fieldset.html"
+        },
+        {
+          "name": "optional",
+          "namePretty": "Optional",
+          "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/forms/optional.html",
+          "localPath": "patterns/forms/optional.html"
+        },
+        {
+          "name": "required",
+          "namePretty": "Required",
+          "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/forms/required.html",
+          "localPath": "patterns/forms/required.html"
+        },
+        {
+          "name": "textbox",
+          "namePretty": "Textbox",
+          "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/forms/textbox.html",
+          "localPath": "patterns/forms/textbox.html"
+        }
+      ],
+      "md": [
+        {
+          "name": "readme",
+          "namePretty": "Readme",
+          "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/forms/README.md",
+          "localPath": "patterns/forms/README.md"
+        }
+      ],
+      "css": [
+        {
+          "name": "forms",
+          "namePretty": "Forms",
+          "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/forms/forms.css",
+          "localPath": "patterns/forms/forms.css"
+        }
+      ]
+    },
+    {
+      "name": "nav",
+      "namePretty": "Nav",
+      "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/nav",
+      "html": [
+        {
+          "name": "nav",
+          "namePretty": "Nav",
+          "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/nav/nav.html",
+          "localPath": "patterns/nav/nav.html"
+        }
+      ],
+      "md": [
+        {
+          "name": "readme",
+          "namePretty": "Readme",
+          "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/nav/README.md",
+          "localPath": "patterns/nav/README.md"
+        }
+      ],
+      "css": [
+        {
+          "name": "nav",
+          "namePretty": "Nav",
+          "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/nav/nav.css",
+          "localPath": "patterns/nav/nav.css"
+        }
+      ]
+    },
+    {
+      "name": "sections",
+      "namePretty": "Sections",
+      "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/sections",
+      "html": [
+        {
+          "name": "social-sections",
+          "namePretty": "Social sections",
+          "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/sections/social-sections.html",
+          "localPath": "patterns/sections/social-sections.html",
+          "readme": {}
+        },
+        {
+          "name": "text-sections",
+          "namePretty": "Text sections",
+          "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/sections/text-sections.html",
+          "localPath": "patterns/sections/text-sections.html",
+          "readme": {}
+        }
+      ],
+      "md": [
+        {
+          "name": "readme",
+          "namePretty": "Readme",
+          "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/sections/README.md",
+          "localPath": "patterns/sections/README.md"
+        }
+      ],
+      "css": [
+        {
+          "name": "sections",
+          "namePretty": "Sections",
+          "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/sections/sections.css",
+          "localPath": "patterns/sections/sections.css"
         }
       ]
     }
@@ -632,5 +744,5 @@ const patternManifest_1519675974591 = {
   }
 };
 
-patternBotIncludes(patternManifest_1519675974591);
+patternBotIncludes(patternManifest_1520360840241);
 }());
