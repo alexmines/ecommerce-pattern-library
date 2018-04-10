@@ -1,6 +1,11 @@
 html {
   background-color: none;
 }
+
+nav {
+  vertical-align: middle;
+}
+
 nav a {
   color: var(--color-secondary);
 }
@@ -31,7 +36,27 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+  }
+
+}
+
+@media only screen and (max-width: 38em) {
+
+ nav {
+  text-align: center;
+  }
+
+}
+
+
+@media only screen and (max-width: 60em) {
+
+  .logo-position {
+    text-align: center;
+  }
+
+  .shop-icon {
+  display:none;
   }
 
 }
