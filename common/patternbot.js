@@ -388,9 +388,9 @@ const patternBotIncludes = function (manifest) {
 /** 
  * Patternbot library manifest
  * /Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library
- * @version 1523372934724
+ * @version 1523378733638
  */
-const patternManifest_1523372934724 = {
+const patternManifest_1523378733638 = {
   "commonInfo": {
     "modulifier": [
       "responsive",
@@ -758,6 +758,12 @@ const patternManifest_1523372934724 = {
           "localPath": "patterns/forms/optional.html"
         },
         {
+          "name": "quantity",
+          "namePretty": "Quantity",
+          "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/forms/quantity.html",
+          "localPath": "patterns/forms/quantity.html"
+        },
+        {
           "name": "required",
           "namePretty": "Required",
           "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/forms/required.html",
@@ -925,5 +931,5 @@ const patternManifest_1523372934724 = {
   }
 };
 
-patternBotIncludes(patternManifest_1523372934724);
+patternBotIncludes(patternManifest_1523378733638);
 }());

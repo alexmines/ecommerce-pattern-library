@@ -901,7 +901,7 @@
   &lt;div class="embed embed-16by9 banner-home-div">
     &lt;img class="img-flex embed-item" src="../../images/banner.jpg" alt="&#x2026;">
   &lt;/div>
-  &lt;div class="banner-content">
+  &lt;div class="banner-content pin-c">
     &lt;p class="push-0 bold yotta text-center">Find your perfect mug&lt;br>New arrivals weekly&lt;/p>
   &lt;/div>
 &lt;/div>
@@ -1438,6 +1438,7 @@
             <li><a href="#forms--dropdown">Dropdown</a></li>
             <li><a href="#forms--fieldset">Fieldset</a></li>
             <li><a href="#forms--optional">Optional</a></li>
+            <li><a href="#forms--quantity">Quantity</a></li>
             <li><a href="#forms--required">Required</a></li>
             <li><a href="#forms--textbox">Textbox</a></li>
         </ol>
@@ -1672,6 +1673,81 @@
           </div>
       </div>
     </div>
+    <div class="pattern-details " id="forms--quantity" style="">
+        <div class="pattern-toolbar pattern-toolbar-inner relative gutter pad-t-1-4 pad-b-1-4" style="">
+          <h3 class="pattern-name tera push-1-8">Quantity</h3>
+            <ul class="list-group-inline gutter absolute pin-cr">
+                <li>
+                  <button class="center-contents-vertical pattern-tool-btn pattern-code-btn" title="Show code" aria-label="Show code" aria-pressed="false" aria-controls="forms-quantity-code-sample">
+                    <i class="icon i-18">
+                      <svg><use xlink:href="#icon-code"></use></svg>
+                    </i>
+                  </button>
+                </li>
+                <li>
+                  <button class="center-contents-vertical pattern-tool-btn pattern-include-btn" title="Copy include" aria-label="Copy include" data-copy-include-pattern="forms/quantity" hidden>
+                    <i class="icon i-18">
+                      <svg><use xlink:href="#icon-copy"></use></svg>
+                    </i>
+                  </button>
+                </li>
+                <li>
+                  <a class="btn center-contents-vertical pattern-tool-btn pattern-pop-btn" href="patterns/forms/quantity.html" target="_blank" title="Open pattern in a new tab" aria-label="Open pattern in a new tab">
+                    <i class="icon i-18">
+                      <svg><use xlink:href="#icon-pop-out"></use></svg>
+                    </i>
+                  </a>
+                </li>
+            </ul>
+        </div>
+
+      <div class="pattern-examples pad-t-1-2 pad-b-1-2" style="">
+        <div class="gutter-2 pad-t-1-2 pad-b-1-2">
+          <div class="resizeable-pattern relative" style="">
+            <i class="icon i-32 patternbot-iframe-loading-gears absolute pin-c"><svg><use xlink:href="#patternbot-iframe-loading-gears"></use></svg></i>
+            <iframe data-src="patterns/forms/quantity.html" scrolling="no" data-inject-css=" " ></iframe>
+              <div class="resizeable-pattern-length">
+                <div class="resize-handle resize-handle-left" style="">
+                  <i class="icon i-18">
+                    <svg><use xlink:href="#icon-resize-handle" /></svg>
+                  </i>
+                </div>
+                <div class="resize-handle resize-handle-right" style="">
+                  <i class="icon i-18">
+                    <svg><use xlink:href="#icon-resize-handle" /></svg>
+                  </i>
+                </div>
+              </div>
+          </div>
+        </div>
+
+          <div class="pattern-code-wrap gutter pad-t-1-2 pad-b-1-2" hidden aria-hidden="true" id="forms-quantity-code-sample" tabindex="-1">
+            <div class="pattern-code relative milli island-1-2" style="">
+              <button class="center-contents-vertical pattern-tool-btn pattern-copy-btn absolute pin-tr" title="Copy code" aria-label="Copy code" data-clipboard-target="#forms-quantity-code-sample-copy-chunk" hidden>
+                <i class="icon i-18">
+                  <svg><use xlink:href="#icon-copy"></use></svg>
+                </i>
+              </button>
+              <code><pre id="forms-quantity-code-sample-copy-chunk">&lt;form&gt;
+  &lt;div>
+    &lt;div class="pad-b gutter">
+      &lt;label for="prov" class="kilo ">Quantity&lt;/label>
+      &lt;select id="prov" name="prov">
+        &lt;option>1&lt;/option>
+        &lt;option>2&lt;/option>
+        &lt;option>3&lt;/option>
+        &lt;option>4&lt;/option>
+        &lt;option>5&lt;/option>
+        &lt;option>6&lt;/option>
+      &lt;/select>
+    &lt;/div>
+  &lt;/div>
+&lt;/form>
+</pre></code>
+            </div>
+          </div>
+      </div>
+    </div>
     <div class="pattern-details " id="forms--required" style="">
         <div class="pattern-toolbar pattern-toolbar-inner relative gutter pad-t-1-4 pad-b-1-4" style="">
           <h3 class="pattern-name tera push-1-8">Required</h3>
@@ -1876,15 +1952,15 @@
                 </i>
               </button>
               <code><pre id="header-header-code-sample-copy-chunk">&lt;header class="masthead" role="banner"&gt;
-  &lt;div class="grid grid-bottom">
-    &lt;div class="unit xs-1 m-1-2">
+  &lt;div>
+    &lt;div>
       &lt;a class="logo block peta logo-position" href="#">
           &lt;i class="icon i-192">
             &lt;img src="../../images/logo-256.svg" alt="">
           &lt;/i>
         &lt;/a>
     &lt;/div>
-    &lt;div class="unit xs-1 m-1-2 pad-b-2">
+    &lt;div class="pad-b-2">
       &lt;nav class="nav" role="navigation">
         &lt;ul class="mega text-center list-group-inline push-0">
           &lt;li class="gutter-1-2">&lt;a href="#">Home&lt;/a>&lt;/li>
