@@ -13,6 +13,7 @@ a {
   color: var(--color-primary);
   text-decoration: none;
 }
+
 mark {
   background-color: var(--color-primary-light);
 }

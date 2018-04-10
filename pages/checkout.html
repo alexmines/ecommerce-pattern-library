@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-ca">
+<head>
+  <meta charset="utf-8">
+  <title>Checkout | Mugs</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="../common/patternbot.js"></script>
+</head>
+<body>
+
+  <header class="gutter">
+    <script type="application/json" data-pattern="header/header"></script>
+  </header>
+
+  <div class="text-center pad-t">
+    <h1>Checkout</h1>
+  </div>
+
+  <div class="grid wrapper">
+    <div class="unit xs-1">
+      <script type="application/json" data-pattern="forms/fieldset"></script>
+    </div>
+    <div class="unit xs-1 s-1 s-1 m-1-2">
+      <script type="application/json" data-pattern="forms/required">
+        {
+          "label": "Name"
+        }
+      </script>
+    </div>
+    <div class="unit xs-1 s-1 m-1-2">
+      <script type="application/json" data-pattern="forms/required">
+        {
+          "label": "Last Name"
+        }
+      </script>
+    </div>
+    <div class="unit xs-1 s-1 m-1-2">
+      <script type="application/json" data-pattern="forms/required">
+        {
+          "label": "Email"
+        }
+      </script>
+    </div>
+    <div class="unit xs-1 s-1 m-1-2">
+      <script type="application/json" data-pattern="forms/required">
+        {
+          "label": "Phone"
+        }
+      </script>
+    </div>
+    <div class="unit xs-1 s-1 m-1-2">
+      <script type="application/json" data-pattern="forms/required">
+        {
+          "label": "Address"
+        }
+      </script>
+    </div>
+    <div class="unit xs-1 s-1 m-1-2">
+      <script type="application/json" data-pattern="forms/required">
+        {
+          "label": "Postal Code"
+        }
+      </script>
+    </div>
+    <div class="unit xs-1 s-1 m-1-2">
+      <script type="application/json" data-pattern="forms/required">
+        {
+          "label": "Country"
+        }
+      </script>
+    </div>
+    <div class="unit xs-1 s-1 m-1-2">
+      <script type="application/json" data-pattern="forms/dropdown"></script>
+    </div>
+    <div class="unit xs-1">
+      <script type="application/json" data-pattern="forms/fieldset">
+        {
+          "legend": "Credit Card Information"
+        }
+      </script>
+    </div>
+    <div class="unit xs-1 s-1 m-1-2">
+      <script type="application/json" data-pattern="forms/required">
+        {
+          "label": "Credit Card Number"
+        }
+      </script>
+    </div>
+    <div class="unit xs-1 s-1 m-1-2">
+      <script type="application/json" data-pattern="forms/required">
+        {
+          "label": "Expiration Date"
+        }
+      </script>
+    </div>
+    <div class="unit xs-1 s-1 m-1-2">
+      <script type="application/json" data-pattern="forms/required">
+        {
+          "label": "CVV"
+        }
+      </script>
+    </div>
+    <div class="unit xs-1 s-1 m-1-2">
+
+    </div>
+  </div>
+
+  <div class="text-center pad-b">
+    <script type="application/json" data-pattern="buttons/standard-btn">
+      {
+        "a": "BUY"
+      }
+    </script>
+  </div>
+
+  <script type="application/json" data-pattern="footer/footer"></script>
+
+</body>
+</html>

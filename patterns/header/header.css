@@ -1,0 +1,37 @@
+html {
+  background-color: none;
+}
+nav a {
+  color: var(--color-secondary);
+}
+
+nav a:hover {
+  color: var(--color-primary);
+}
+
+.nav li {
+  position: relative;
+}
+
+.nav .current::after {
+  bottom: -.5em;
+  left: 50%;
+  position: absolute;
+  width: .3em;
+  height: .3em;
+}
+
+header {
+  background-color: var(--color-primary-light);
+}
+
+@media only screen and (min-width: 38em) {
+
+  .masthead {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+}

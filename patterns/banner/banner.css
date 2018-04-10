@@ -1,0 +1,19 @@
+.banner-home {
+  background-size: cover;
+  background-position: center bottom;
+  position: relative;
+  overflow: hidden;
+  max-height: 24em;
+}
+
+.banner-content {
+  position: absolute;
+  width: 40%;
+  bottom: 40%;
+  left: 50%;
+  transform: translate(-50%);
+  color: white;
+  background-color: black;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}

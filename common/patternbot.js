@@ -101,7 +101,6 @@ const patternBotIncludes = function (manifest) {
     for (i = 0; i < t; i++) {
       if (rootMatcher.test(allScripts[i].src)) {
         return allScripts[i].src.split(rootMatcher)[0];
-        break;
       }
     }
   };
@@ -143,7 +142,7 @@ const patternBotIncludes = function (manifest) {
     let patternInfoJson;
     const data = patternElem.innerText.trim();
 
-    if (!data) return {}
+    if (!data) return {};
 
     try {
       patternInfoJson = JSON.parse(data);
@@ -172,9 +171,50 @@ const patternBotIncludes = function (manifest) {
     };
   };
 
+  const correctHrefPaths = function (html) {
+    const hrefSearch = /href\s*=\s*"\.\.\/\.\.\//g;
+    const srcSearch = /src\s*=\s*"\.\.\/\.\.\//g;
+    const urlSearch = /url\((["']*)\.\.\/\.\.\//g;
+
+    return html
+      .replace(hrefSearch, 'href="../')
+      .replace(srcSearch, 'src="../')
+      .replace(urlSearch, 'url($1../')
+    ;
+  };
+
+  const buildAccurateSelectorFromElem = function (elem) {
+    let theSelector = elem.tagName.toLowerCase();
+
+    if (elem.id) theSelector += `#${elem.id}`;
+    if (elem.getAttribute('role')) theSelector += `[role="${elem.getAttribute('role')}"]`;
+    if (elem.classList.length > 0) theSelector += `.${[].join.call(elem.classList, '.')}`;
+
+    theSelector += ':first-of-type';
+
+    return theSelector;
+  };
+
+  /**
+   * This is an ugly mess: Blink does not properly render SVGs when using DOMParser alone.
+   * But, I need DOMParser to determine the correct element to extract.
+   *
+   * I only want to get the first element within the `<body>` tag of the loaded document.
+   * This dumps the whole, messy, HTML document into a temporary `<div>`,
+   * then uses the DOMParser version, of the same element, to create an accurate selector,
+   * then finds that single element in the temporary `<div>` using the selector and returns it.
+   */
   const htmlStringToElem = function (html) {
+    let theSelector = '';
+    const tmpDoc = document.createElement('div');
+    const finalTmpDoc = document.createElement('div');
     const doc = (new DOMParser()).parseFromString(html, 'text/html');
-    return doc.body;
+
+    tmpDoc.innerHTML = html;
+    theSelector = buildAccurateSelectorFromElem(doc.body.firstElementChild);
+    finalTmpDoc.appendChild(tmpDoc.querySelector(theSelector));
+
+    return finalTmpDoc;
   };
 
   const replaceElementValue = function (elem, sel, data) {
@@ -197,7 +237,7 @@ const patternBotIncludes = function (manifest) {
 
     if (!patternDetails.html) return;
 
-    patternOutElem = htmlStringToElem(patternDetails.html);
+    patternOutElem = htmlStringToElem(correctHrefPaths(patternDetails.html));
     patternData = getPatternInfo(patternElem);
 
     Object.keys(patternData).forEach((sel) => {
@@ -234,7 +274,7 @@ const patternBotIncludes = function (manifest) {
   };
 
   const hideLoadingScreen = function () {
-    const allDownloadedInterval = setInterval(() => {
+    let allDownloadedInterval = setInterval(() => {
       if (Object.values(downloadedAssets).includes(false)) return;
 
       clearInterval(allDownloadedInterval);
@@ -348,9 +388,9 @@ const patternBotIncludes = function (manifest) {
 /** 
  * Patternbot library manifest
  * /Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library
- * @version 1520360840241
+ * @version 1523326419920
  */
-const patternManifest_1520360840241 = {
+const patternManifest_1523326419920 = {
   "commonInfo": {
     "modulifier": [
       "responsive",
@@ -487,17 +527,18 @@ const patternManifest_1520360840241 = {
           "primary": 0,
           "opposite": 255
         }
-      }
+      },
+      "bodyRaw": "MUGS is an online store that specializes in mugs. They carry many designs, such as funny, sweet and artistic.\n",
+      "bodyBasic": "MUGS is an online store that specializes in mugs. They carry many designs, such as funny, sweet and artistic."
     },
     "icons": [
+      "about",
       "cart-empty",
       "cart-full",
-      "instagram",
       "facebook",
-      "search",
-      "toggle-open",
-      "twitter",
-      "toggle-closed"
+      "instagram",
+      "shop",
+      "twitter"
     ],
     "interfaceColours": {
       "primary": 0,
@@ -525,25 +566,85 @@ const patternManifest_1520360840241 = {
       "size64Local": "logo-64.svg"
     },
     "patterns": [
+      "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/banner",
       "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/buttons",
       "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/cards",
+      "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/footer",
       "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/forms",
+      "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/header",
       "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/nav",
+      "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/product-list",
       "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/sections"
     ],
-    "pages": []
+    "pages": [
+      {
+        "name": "checkout.html",
+        "namePretty": "Checkout",
+        "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/pages/checkout.html"
+      },
+      {
+        "name": "home.html",
+        "namePretty": "Home",
+        "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/pages/home.html"
+      },
+      {
+        "name": "shop.html",
+        "namePretty": "Shop",
+        "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/pages/shop.html"
+      }
+    ]
   },
   "userPatterns": [
+    {
+      "name": "banner",
+      "namePretty": "Banner",
+      "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/banner",
+      "html": [
+        {
+          "name": "banner",
+          "namePretty": "Banner",
+          "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/banner/banner.html",
+          "localPath": "patterns/banner/banner.html"
+        },
+        {
+          "name": "social-banner",
+          "namePretty": "Social banner",
+          "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/banner/social-banner.html",
+          "localPath": "patterns/banner/social-banner.html"
+        }
+      ],
+      "md": [],
+      "css": [
+        {
+          "name": "banner",
+          "namePretty": "Banner",
+          "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/banner/banner.css",
+          "localPath": "patterns/banner/banner.css"
+        }
+      ]
+    },
     {
       "name": "buttons",
       "namePretty": "Buttons",
       "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/buttons",
       "html": [
         {
-          "name": "buttons",
-          "namePretty": "Buttons",
-          "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/buttons/buttons.html",
-          "localPath": "patterns/buttons/buttons.html"
+          "name": "ghost-btn",
+          "namePretty": "Ghost btn",
+          "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/buttons/ghost-btn.html",
+          "localPath": "patterns/buttons/ghost-btn.html"
+        },
+        {
+          "name": "light-btn",
+          "namePretty": "Light btn",
+          "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/buttons/light-btn.html",
+          "localPath": "patterns/buttons/light-btn.html"
+        },
+        {
+          "name": "standard-btn",
+          "namePretty": "Standard btn",
+          "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/buttons/standard-btn.html",
+          "localPath": "patterns/buttons/standard-btn.html"
         }
       ],
       "md": [
@@ -605,6 +706,35 @@ const patternManifest_1520360840241 = {
       ]
     },
     {
+      "name": "footer",
+      "namePretty": "Footer",
+      "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/footer",
+      "html": [
+        {
+          "name": "footer",
+          "namePretty": "Footer",
+          "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/footer/footer.html",
+          "localPath": "patterns/footer/footer.html"
+        }
+      ],
+      "md": [
+        {
+          "name": "readme",
+          "namePretty": "Readme",
+          "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/footer/README.md",
+          "localPath": "patterns/footer/README.md"
+        }
+      ],
+      "css": [
+        {
+          "name": "footer",
+          "namePretty": "Footer",
+          "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/footer/footer.css",
+          "localPath": "patterns/footer/footer.css"
+        }
+      ]
+    },
+    {
       "name": "forms",
       "namePretty": "Forms",
       "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/forms",
@@ -658,6 +788,35 @@ const patternManifest_1520360840241 = {
       ]
     },
     {
+      "name": "header",
+      "namePretty": "Header",
+      "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/header",
+      "html": [
+        {
+          "name": "header",
+          "namePretty": "Header",
+          "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/header/header.html",
+          "localPath": "patterns/header/header.html"
+        }
+      ],
+      "md": [
+        {
+          "name": "readme",
+          "namePretty": "Readme",
+          "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/header/README.md",
+          "localPath": "patterns/header/README.md"
+        }
+      ],
+      "css": [
+        {
+          "name": "header",
+          "namePretty": "Header",
+          "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/header/header.css",
+          "localPath": "patterns/header/header.css"
+        }
+      ]
+    },
+    {
       "name": "nav",
       "namePretty": "Nav",
       "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/nav",
@@ -683,6 +842,28 @@ const patternManifest_1520360840241 = {
           "namePretty": "Nav",
           "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/nav/nav.css",
           "localPath": "patterns/nav/nav.css"
+        }
+      ]
+    },
+    {
+      "name": "product-list",
+      "namePretty": "Product list",
+      "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/product-list",
+      "html": [
+        {
+          "name": "product-list",
+          "namePretty": "Product list",
+          "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/product-list/product-list.html",
+          "localPath": "patterns/product-list/product-list.html"
+        }
+      ],
+      "md": [],
+      "css": [
+        {
+          "name": "product-list",
+          "namePretty": "Product list",
+          "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/product-list/product-list.css",
+          "localPath": "patterns/product-list/product-list.css"
         }
       ]
     },
@@ -744,5 +925,5 @@ const patternManifest_1520360840241 = {
   }
 };
 
-patternBotIncludes(patternManifest_1520360840241);
+patternBotIncludes(patternManifest_1523326419920);
 }());
