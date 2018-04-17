@@ -1,19 +1,25 @@
 .banner-home {
-  background-size: cover;
-  background-position: center bottom;
   position: relative;
   overflow: hidden;
-  max-height: 24em;
+}
+
+.banner-home-div {
+  padding-top: 80.25%;
 }
 
 .banner-content {
   position: absolute;
-  width: 50%;
-  bottom: 40%;
-  left: 50%;
-  transform: translate(-50%);
+  width: 100%;
+  max-width: 20em;
   color: white;
   background-color: black;
   padding-top: 5px;
   padding-bottom: 5px;
+}
+
+
+@media only screen and (min-width: 38em) {
+  .banner-home-div {
+    padding-top: 56.25%;
+  }
 }
