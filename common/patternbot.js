@@ -388,9 +388,9 @@ const patternBotIncludes = function (manifest) {
 /** 
  * Patternbot library manifest
  * /Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library
- * @version 1524585689515
+ * @version 1524586187643
  */
-const patternManifest_1524585689514 = {
+const patternManifest_1524586187642 = {
   "commonInfo": {
     "modulifier": [
       "responsive",
@@ -618,16 +618,25 @@ const patternManifest_1524585689514 = {
           "name": "banner",
           "namePretty": "Banner",
           "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/banner/banner.html",
-          "localPath": "patterns/banner/banner.html"
+          "localPath": "patterns/banner/banner.html",
+          "readme": {}
         },
         {
           "name": "social-banner",
           "namePretty": "Social banner",
           "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/banner/social-banner.html",
-          "localPath": "patterns/banner/social-banner.html"
+          "localPath": "patterns/banner/social-banner.html",
+          "readme": {}
         }
       ],
-      "md": [],
+      "md": [
+        {
+          "name": "readme",
+          "namePretty": "Readme",
+          "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/banner/README.md",
+          "localPath": "patterns/banner/README.md"
+        }
+      ],
       "css": [
         {
           "name": "banner",
@@ -877,7 +886,14 @@ const patternManifest_1524585689514 = {
           "localPath": "patterns/product-list/product-list.html"
         }
       ],
-      "md": [],
+      "md": [
+        {
+          "name": "readme",
+          "namePretty": "Readme",
+          "path": "/Users/alexandramines/Library/Mobile Documents/com~apple~CloudDocs/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/product-list/README.md",
+          "localPath": "patterns/product-list/README.md"
+        }
+      ],
       "css": [
         {
           "name": "product-list",
@@ -945,5 +961,5 @@ const patternManifest_1524585689514 = {
   }
 };
 
-patternBotIncludes(patternManifest_1524585689514);
+patternBotIncludes(patternManifest_1524586187642);
 }());
