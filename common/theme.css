@@ -2,6 +2,7 @@
   --color-primary: #cc9ab6;
   --color-secondary: #333;
   --color-primary-light: #e5e5e5;
+  --color-grey: #B0B0B0;
   --font-primary: "Roboto", "Lato", arial, sans-serif;
 }
 
@@ -24,6 +25,10 @@ h2 {
 
 h4 {
   color: var(--color-primary);
+}
+
+h5 {
+  color: var(--color-grey);
 }
 
 h6 {
